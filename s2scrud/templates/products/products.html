@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load rest_framework %}
+
+<style>
+</style>
+
+{% block content%}
+
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <p><h1>Product List</h1>
+    <a href="{% url 'product-list' %}"><input class="btn btn-primary" type="button" style="float: right;" value="New Product"></a></p><br><br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SKU</th>
+      <th scope="col">Size</th>
+      <th scope="col">Grams</th>
+      <th scope="col">Foo</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for d in data %}
+    <tr>
+      <td>{{ d.sku }}</td>
+      <td>{{ d.attribute.size }}</td>
+      <td>{{ d.attribute.grams }}</td>
+      <td>{{ d.attribute.foo }}</td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  </div>
+
+</main>
+
+{% endblock %}
